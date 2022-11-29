@@ -2,7 +2,6 @@ package com.example.tak1;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,7 +38,7 @@ public class bottomNavigationView extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         //MOVE TO TABLE ACTIVITY CLASS
-        Intent intent =new Intent(com.example.tak1.bottomNavigationView.this,tabel.class);
+        Intent intent =new Intent(com.example.tak1.bottomNavigationView.this, Table.class);
         startActivity(intent);
     }
 }

@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/* loaded from: classes3.dex */
 public class customAdapter extends ArrayAdapter<modelClass> {
     Context context;
     List<modelClass> objects;
@@ -25,7 +24,7 @@ public class customAdapter extends ArrayAdapter<modelClass> {
         this.resource = resource;
     }
 
-    @Override // android.widget.ArrayAdapter, android.widget.Adapter
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(this.context);
         View view = inflater.inflate(this.resource, (ViewGroup) null);

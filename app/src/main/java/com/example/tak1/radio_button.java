@@ -25,14 +25,11 @@ public class radio_button extends AppCompatActivity {
     }
 
     private void moveToNextActivity() {
-        this.next.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public  boolean onLongClick(View view) {
-                //METHOD TO MOVE TO ACCORDION VIEW ACTIVITY
-                 nextActivity();
-                 return true;
-             }
-        });
+        this.next.setOnLongClickListener(view -> {
+            //METHOD TO MOVE TO ACCORDION VIEW ACTIVITY
+             nextActivity();
+             return true;
+         });
     }
 
     //METHOD TO MOVE TO ACCORDION VIEW ACTIVITY

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class tabel extends AppCompatActivity {
+public class Table extends AppCompatActivity {
 
     //ON CREATE METHOD
     @Override

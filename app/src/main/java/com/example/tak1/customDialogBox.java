@@ -2,7 +2,6 @@ package com.example.tak1;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatButton;
@@ -17,12 +16,7 @@ public class customDialogBox {
         TextView MESSAGE = (TextView) dialog.findViewById(R.id.MESSAGE);
         MESSAGE.setText(Message);
         AppCompatButton OK = (AppCompatButton) dialog.findViewById(R.id.Ok);
-        OK.setOnClickListener(new View.OnClickListener() { // from class: com.example.task1.customDialogBox$$ExternalSyntheticLambda0
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
+        OK.setOnClickListener(view -> dialog.dismiss());
         dialog.show();
     }
 }

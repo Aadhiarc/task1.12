@@ -3,7 +3,6 @@ package com.example.tak1;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -42,21 +41,15 @@ public class MainActivity extends AppCompatActivity {
     //ON CLICK OF VIEWS
     private void onClickMethods() {
         try {
-            next.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public  void onClick(View view) {
-                    //FOR VALIDATING EACH VIEWS
-                    validation();
-                }
+            next.setOnClickListener(view -> {
+                //FOR VALIDATING EACH VIEWS
+                validation();
             });
-            next.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public  boolean onLongClick(View view) {
-                    //CREATING A INTENT TO MOVE RADIO BUTTON ACTIVITY CLASS
-                    Intent intent = new Intent(MainActivity.this, radio_button.class);
-                    startActivity(intent);
-                    return true;
-                }
+            next.setOnLongClickListener(view -> {
+                //CREATING A INTENT TO MOVE RADIO BUTTON ACTIVITY CLASS
+                Intent intent = new Intent(MainActivity.this, radio_button.class);
+                startActivity(intent);
+                return true;
             });
         } catch (Exception e) {
             e.printStackTrace();

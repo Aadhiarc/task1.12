@@ -22,7 +22,6 @@ public class accordionView extends AppCompatActivity {
 
     //DECLARATION
     Button continueBtn;
-    customAdapter customAdapter;
     RelativeLayout details;
     RelativeLayout details2;
     RelativeLayout details3;
@@ -58,14 +57,11 @@ public class accordionView extends AppCompatActivity {
 
      //METHOD TO MOVE TO PROFILE ACTIVITY
     private void moveToNextActivity() {
-        this.continueBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public  boolean onLongClick(View view) {
-                //INTENT TO MOVE TO NEXT ACTIVITY
-                Intent intent = new Intent(accordionView.this, profileActivity.class);
-                startActivity(intent);
-                return false;
-            }
+        this.continueBtn.setOnLongClickListener(view -> {
+            //INTENT TO MOVE TO NEXT ACTIVITY
+            Intent intent = new Intent(accordionView.this, profileActivity.class);
+            startActivity(intent);
+            return false;
         });
     }
 
@@ -100,34 +96,25 @@ public class accordionView extends AppCompatActivity {
         this.fab_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_up);
         this.fab_down = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_down);
         try {
-            this.dropDown.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public  void onClick(View view) {
-                    //FIRST IMAGE BUTTON
-                  accordionViewImageBtn1();
-                }
+            this.dropDown.setOnClickListener(view -> {
+                //FIRST IMAGE BUTTON
+              accordionViewImageBtn1();
             });
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
-            this.dropDown2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public  void onClick(View view) {
-                    //SECOND IMAGE BUTTON
-                    accordionViewImageBtn2();
-                }
+            this.dropDown2.setOnClickListener(view -> {
+                //SECOND IMAGE BUTTON
+                accordionViewImageBtn2();
             });
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         try {
-            this.dropDown3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public  void onClick(View view) {
-                    //THIRD IMAGE BUTTON
-                    accordionViewImageBtn3();
-                }
+            this.dropDown3.setOnClickListener(view -> {
+                //THIRD IMAGE BUTTON
+                accordionViewImageBtn3();
             });
         } catch (Exception e3) {
             e3.printStackTrace();
