@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -220,20 +220,16 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="Yes"
+                       android:theme="@style/CustomRadioButton"
                        android:fontFamily="@font/latinotypeantartidaroundedmedium"
                        android:textColor="@color/black"/>
                    <RadioButton
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="No"
+                       android:theme="@style/CustomRadioButton"
                        android:fontFamily="@font/latinotypeantartidaroundedmedium"
                        android:textColor="@color/black"/>
-
-
-
-
-
-
 
                </RadioGroup>
 
@@ -275,8 +271,7 @@
                     android:inputType="number"
                     android:maxLength="7"
                     android:paddingStart="@dimen/activity_padding_10dp"
-                    android:paddingEnd="@dimen/activity_padding_end_10dp"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:paddingEnd="@dimen/activity_padding_end_10dp" />
             </LinearLayout>
 
             <TextView
@@ -310,6 +305,54 @@
                 android:layout_marginTop="@dimen/activity_margin_top_5dp"
                 android:background="@drawable/spinnerback"
                 android:entries="@array/occupation_array" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_margin_top_10dp"
+                android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                android:text="@string/gender_tag"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/genderSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_city_edit_text_height_50dp"
+                android:layout_marginTop="@dimen/activity_margin_top_5dp"
+                android:background="@drawable/spinnerback"
+                android:entries="@array/gender_array" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_margin_top_10dp"
+                android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                android:text="@string/coverage_tag"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/coverageSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_city_edit_text_height_50dp"
+                android:layout_marginTop="@dimen/activity_margin_top_5dp"
+                android:background="@drawable/spinnerback"
+                android:entries="@array/coverage_array" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_margin_top_10dp"
+                android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                android:text="@string/terms_tag"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/termsSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_city_edit_text_height_50dp"
+                android:layout_marginTop="@dimen/activity_margin_top_5dp"
+                android:background="@drawable/spinnerback"
+                android:entries="@array/terms_array" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -364,6 +407,21 @@
                 android:inputType="number"
                 android:maxLength="6"
                 android:paddingStart="@dimen/activity_padding_10dp" />
+
+            <CheckBox
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:theme="@style/CustomRadioButton"
+                android:background="@drawable/checkboxback"
+                android:text="I understand that any changes made to the above fields will affect the premium for the policy I have chosen"
+                android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                android:textColor="@color/black"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
         </LinearLayout>
     </ScrollView>
 

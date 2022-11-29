@@ -18,4 +18,20 @@
         <item>Logging workers</item>
         <item>Fishing and hunting workers</item>
     </array>
+    <array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </array>
+    <array name="coverage_array">
+        <item>500K</item>
+        <item>400K</item>
+        <item>300K</item>
+        <item>200K</item>
+    </array>
+    <array name="terms_array">
+        <item>5 Years</item>
+        <item>4 Years</item>
+        <item>3 Years</item>
+        <item>2 Years</item>
+    </array>
 </resources>

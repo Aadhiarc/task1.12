@@ -147,5 +147,8 @@
     <string name="cityFieldDialogValue">City field is empty</string>
     <string name="mobile_tag">Mobile <font color='#ff0000'>*</font></string>
     <string name="do_you_smoke_or_chew_tobacco_tag">Do you smoke or chew tobacco? <font color='#ff0000'>*</font></string>
+    <string name="gender_tag">Gender <font color='#ff0000'>*</font></string>
+    <string name="coverage_tag">Coverage <font color='#ff0000'>*</font></string>
+    <string name="terms_tag">Terms <font color='#ff0000'>*</font></string>
 </resources>
 
