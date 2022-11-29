@@ -16,7 +16,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/latinotypeantartidaroundedmedium"
-            android:padding="10dp"
             android:text="Title"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -28,32 +27,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:layout_marginTop="32dp"
             android:fontFamily="@font/latinotypeantartidaroundedmedium"
             android:lineSpacingMultiplier="1.2"
             android:text="Message"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TITLE"
-            app:layout_constraintVertical_bias="0.106"
-            tools:layout_editor_absoluteX="16dp" />
+   />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="80dp"
             android:background="@color/link_blue"
             android:elevation="2dp"
             android:fontFamily="@font/latinotypeantartidaroundedmedium"
             android:text="Ok"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.924"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MESSAGE" />
+            app:layout_constraintTop_toBottomOf="@+id/MESSAGE"
+            tools:layout_editor_absoluteX="196dp"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
