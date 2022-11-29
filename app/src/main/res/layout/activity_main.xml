@@ -410,9 +410,10 @@
 
             <CheckBox
                 android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="top"
                 android:theme="@style/CustomRadioButton"
                 android:background="@drawable/checkboxback"
                 android:text="I understand that any changes made to the above fields will affect the premium for the policy I have chosen"
@@ -421,7 +422,16 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="47dp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:layout_marginTop="@dimen/activity_layout_elevation_10dp"
+                android:background="@drawable/buttonback"
+                android:drawableRight="@drawable/rightarrow"
+                android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                android:text="@string/update_proceed_tag"
+                android:textColor="@color/white" />
+
         </LinearLayout>
     </ScrollView>
 
