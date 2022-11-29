@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_button_height_70dp">70dp</dimen>
+    <dimen name="activity_city_edit_text_height_50dp">50dp</dimen>
+    <dimen name="activity_eduction_edit_text_height_50dp">50dp</dimen>
+    <dimen name="activity_email_edit_text_height_50dp">50dp</dimen>
+    <dimen name="activity_email_text_size_15sp">15sp</dimen>
+    <dimen name="activity_full_name_edit_text_height_50dp">50dp</dimen>
+    <dimen name="activity_full_name_text_size_15sp">15sp</dimen>
+    <dimen name="activity_ksh_button_width_60dp">60dp</dimen>
+    <dimen name="activity_layout_elevation_10dp">10dp</dimen>
+    <dimen name="activity_layout_height">70dp</dimen>
+    <dimen name="activity_margin_30dp">30dp</dimen>
+    <dimen name="activity_margin_bottom_10dp">10dp</dimen>
+    <dimen name="activity_margin_end_5dp">5dp</dimen>
+    <dimen name="activity_margin_start_5dp">5dp</dimen>
+    <dimen name="activity_margin_top15dp">15dp</dimen>
+    <dimen name="activity_margin_top_10dp">10dp</dimen>
+    <dimen name="activity_margin_top_5dp">5dp</dimen>
+    <dimen name="activity_marital_status_height_50dp">50dp</dimen>
+    <dimen name="activity_occupation_edit_text_height_50dp">50dp</dimen>
+    <dimen name="activity_padding_10dp">15dp</dimen>
+    <dimen name="activity_padding_8dp">8dp</dimen>
+    <dimen name="activity_padding_end_10dp">10dp</dimen>
+    <dimen name="activity_padding_left_10dp">10dp</dimen>
+    <dimen name="activity_padding_start_20dp">20dp</dimen>
+    <dimen name="activity_padding_start_5dp">5dp</dimen>
+    <dimen name="activity_padding_start_8dp">8dp</dimen>
+    <dimen name="activity_pay_term_button_elevation_10dp">10dp</dimen>
+    <dimen name="activity_pincode_edit_text_height_50dp">50dp</dimen>
+    <dimen name="activity_policy_term_button_elevation_10dp">10dp</dimen>
+    <dimen name="activity_sum_assured_button_elevation_10dp">10dp</dimen>
+    <dimen name="activity_text_size_14sp">14sp</dimen>
+</resources>

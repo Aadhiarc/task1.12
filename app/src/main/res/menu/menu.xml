@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homenav"
+        android:icon="@drawable/homenav"
+        android:title="Home" />
+    <item
+        android:id="@+id/claimsnav"
+        android:icon="@drawable/flagnav"
+        android:title="Claims" />
+    <item
+        android:id="@+id/Policiesnav"
+        android:title="Policies" />
+    <item
+        android:id="@+id/accountnav"
+        android:icon="@drawable/personnav"
+        android:title="Account" />
+    <item
+        android:id="@+id/helpnav"
+        android:icon="@drawable/help"
+        android:title="Help" />
+</menu>

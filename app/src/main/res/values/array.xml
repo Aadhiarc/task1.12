@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="education_array">
+        <item>Post graduate</item>
+        <item>Graduate</item>
+        <item>Professional Degree</item>
+    </array>
+    <array name="occupation_array">
+        <item>Others</item>
+        <item>Grounds maintenance workers</item>
+        <item>Farmers, ranchers, and agricultural managers</item>
+        <item>Structural iron and steel workers</item>
+        <item>Drivers (including for sales) and truck drivers</item>
+        <item>recyclable material</item>
+        <item>Construction trades</item>
+        <item>Roofers</item>
+        <item>Aircraft pilots and flight engineers</item>
+        <item>Logging workers</item>
+        <item>Fishing and hunting workers</item>
+    </array>
+</resources>
