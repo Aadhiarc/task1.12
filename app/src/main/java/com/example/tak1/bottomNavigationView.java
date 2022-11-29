@@ -24,21 +24,30 @@ public class bottomNavigationView extends AppCompatActivity {
     }
 
     private void onClickMethod() {
-
-
+         //WHEN ITEM SELECTED IN THE BOTTOM NAVIGATION BAR
+     onItemSelected();
     }
 
      //VIEWS INITIALIZATION METHOD
     private void viewsInitialization() {
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
-
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        //MOVE TO TABLE ACTIVITY CLASS
-        Intent intent =new Intent(com.example.tak1.bottomNavigationView.this, Table.class);
-        startActivity(intent);
+    //ON ITEM SELECTED IN THE BOTTOM NAVIGATION BAR
+    void onItemSelected(){
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+
+            switch (item.getItemId()){
+                case R.id.Policiesnav:
+                    //MOVE TO TABLE ACTIVITY CLASS
+                    Intent intent =new Intent(com.example.tak1.bottomNavigationView.this, Table.class);
+                    startActivity(intent);
+                    break;
+
+            }
+            return false;
+        });
+
+
     }
 }

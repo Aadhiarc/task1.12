@@ -15,7 +15,7 @@
     <string name="annaual_income_text">Annaual income</string>
     <string name="annaualincomeDialogValue">\"annual income field is empty \"</string>
     <string name="annualDialogTag">\" annual income incorrect\"</string>
-    <string name="annual_income_tag">Annual income *</string>
+    <string name="annual_income_tag">Annual income <font color='#ff0000'>*</font></string>
     <string name="city_tag">City</string>
     <string name="city_text">Locality</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
@@ -23,11 +23,11 @@
     <string name="continue_btn_tag">Continue</string>
     <string name="coverage_text">Coverage</string>
     <string name="critical_illness_plus_benefits_text">Critical illness plus benefits</string>
-    <string name="education_tag">Education *</string>
+    <string name="education_tag">Education <font color='#ff0000'>*</font></string>
     <string name="education_text">Education</string>
     <string name="emailDialogTag">User email incorrect</string>
     <string name="emailDialogTagValue">\"email field is empty \"</string>
-    <string name="email_id_tag">Email ID *</string>
+    <string name="email_id_tag">Email ID <font color='#ff0000'>*</font></string>
     <string name="email_id_text">Email id</string>
     <string name="email_tag_hint">email</string>
     <string name="email_text">Email</string>
@@ -44,7 +44,7 @@
     <string name="first_layout_2_text">Pay Term</string>
     <string name="first_layout_3_text">Sum Assured</string>
     <string name="first_layout_3a">10,00,00,000</string>
-    <string name="full_name_tag">Full Name *</string>
+    <string name="full_name_tag">Full Name <font color='#ff0000'>*</font></string>
     <string name="full_name_tag_hint">Full Name</string>
     <string name="full_name_text">Full Name</string>
     <string name="fullnameDialogValue">\"user name field is empty \"</string>
@@ -99,7 +99,7 @@
     <string name="name_text">Name</string>
     <string name="no_text">No</string>
     <string name="no_text2">No</string>
-    <string name="occupation_tag">Occupation *</string>
+    <string name="occupation_tag">Occupation <font color='#ff0000'>*</font></string>
     <string name="occupation_text">Occupation</string>
     <string name="on_your_policy_document_text">on your policy document.</string>
     <string name="others_text">Others</string>
@@ -145,5 +145,7 @@
     <string name="maritalStatusDialogValue">Martial status filed is empty</string>
     <string name="cityFieldDialogTag">City field is incorrect</string>
     <string name="cityFieldDialogValue">City field is empty</string>
+    <string name="mobile_tag">Mobile <font color='#ff0000'>*</font></string>
+    <string name="do_you_smoke_or_chew_tobacco_tag">Do you smoke or chew tobacco? <font color='#ff0000'>*</font></string>
 </resources>
 

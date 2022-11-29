@@ -17,8 +17,12 @@ public class profileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         //METHOD INITIALIZATION
         initialization();
-        //METHOD MOVE TO NEXT ACTIVITY
-        nextActivity();
+        //WHEN LOGOUT BUTTON IS CLICKED
+        logout.setOnClickListener(view -> {
+            //MOVE TO NEXT ACTIVITY
+            nextActivity();
+        });
+
     }
 
     //METHOD MOVE TO NEXT ACTIVITY

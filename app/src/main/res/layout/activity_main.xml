@@ -165,6 +165,77 @@
                 android:inputType="textEmailAddress"
                 android:maxLength="25"
                 android:paddingStart="@dimen/activity_padding_start_8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_margin_top_10dp"
+                android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                android:text="@string/mobile_tag"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/activity_margin_top_5dp"
+                android:background="@drawable/edittextback"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="+254"
+                    android:background="@drawable/mobileback"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                    android:layout_gravity="center"/>
+                <EditText
+                    android:id="@+id/moblieNumberEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_margin_end_5dp"
+                    android:layout_weight="9"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:inputType="number"
+                    android:maxLength="7"
+                    android:paddingStart="@dimen/activity_padding_10dp"
+                    android:paddingEnd="@dimen/activity_padding_end_10dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_margin_top_10dp"
+                android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                android:text="@string/do_you_smoke_or_chew_tobacco_tag"
+                android:textColor="@color/black" />
+               <RadioGroup
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="horizontal">
+                   <RadioButton
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Yes"
+                       android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                       android:textColor="@color/black"/>
+                   <RadioButton
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="No"
+                       android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                       android:textColor="@color/black"/>
+
+
+
+
+
+
+
+               </RadioGroup>
 
             <TextView
                 android:layout_width="wrap_content"
