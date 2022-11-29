@@ -24,4 +24,5 @@
     <color name="white">#ffffffff</color>
     <color name="profile_back">#f9fafc</color>
     <color name="heading_back">#f7fbfe</color>
+    <color name="button_color">#646f75</color>
 </resources>

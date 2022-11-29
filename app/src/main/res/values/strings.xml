@@ -150,5 +150,6 @@
     <string name="gender_tag">Gender <font color='#ff0000'>*</font></string>
     <string name="coverage_tag">Coverage <font color='#ff0000'>*</font></string>
     <string name="terms_tag">Terms <font color='#ff0000'>*</font></string>
+    <string name="update_proceed_tag"><![CDATA[Update & Proceed]]></string>
 </resources>
 
