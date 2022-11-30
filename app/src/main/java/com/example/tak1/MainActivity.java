@@ -330,7 +330,6 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
            Response staticResponse = null;
 
            try {
-
                staticResponse = client.newCall(request).execute();
                int statuscode = staticResponse.code();
                if (statuscode == 401) {
@@ -361,14 +360,19 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
                else if(statuscode==500){
                    String response=staticResponse.body().string();
                    // Extracting the message from the api response.
-                   JSONObject obj = new JSONObject(response).getJSONObject("rmsg");
+                   JSONObject obj = new JSONObject(response);
+                   JSONArray error = obj.getJSONArray("rmsg");
+                   if(error != null && error.length() > 0 ) {
+                       for (int i = 0; i < error.length(); i++) {
+                           JSONObject fileObj = error.getJSONObject(i);
+                              fileObj.getString("errorText");
+                              fileObj.getString("errorCode");
+                              fileObj.getString("fieldName");
+                              fileObj.getString("fieldValue");
+                       }
+                   }
+                   JSONObject USER=obj.getJSONObject("getUserProfile");
                    customDialogBox.alertTheUser(getString(R.string.error_api_tag), getString(R.string.error_tag_value),getApplicationContext());
-               } else {
-                   // Alert the user if there is any another response with default message.
-
-
-
-
                }
            }catch (Exception e){
 
