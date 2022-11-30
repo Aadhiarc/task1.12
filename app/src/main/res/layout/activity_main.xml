@@ -20,7 +20,6 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:clickable="true"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -54,7 +53,6 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:clickable="true"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -86,7 +84,6 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:clickable="true"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -143,7 +140,9 @@
                 android:hint="@string/full_name_tag_hint"
                 android:inputType="textPersonName"
                 android:maxLength="20"
-                android:paddingStart="@dimen/activity_padding_start_8dp" />
+                android:autofillHints="name"
+                android:paddingStart="@dimen/activity_padding_start_8dp"
+                android:paddingEnd="@dimen/activity_margin_0dp"/>
 
             <TextView
                 android:id="@+id/emailText"
@@ -164,6 +163,8 @@
                 android:hint="@string/email_tag_hint"
                 android:inputType="textEmailAddress"
                 android:maxLength="25"
+                android:autofillHints="emailAddress"
+                android:paddingEnd="@dimen/activity_margin_0dp"
                 android:paddingStart="@dimen/activity_padding_start_8dp" />
             <TextView
                 android:layout_width="wrap_content"
@@ -185,7 +186,7 @@
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="+254"
+                    android:text="@string/_254_tag"
                     android:background="@drawable/mobileback"
                     android:gravity="center"
                     android:textColor="@color/black"
@@ -201,6 +202,7 @@
                     android:background="@color/white"
                     android:inputType="number"
                     android:maxLength="7"
+                    android:autofillHints="phone"
                     android:paddingStart="@dimen/activity_padding_10dp"
                     android:paddingEnd="@dimen/activity_padding_end_10dp"
                     tools:ignore="TouchTargetSizeCheck" />
@@ -219,14 +221,14 @@
                    <RadioButton
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:text="Yes"
+                       android:text="@string/yes_tag"
                        android:theme="@style/CustomRadioButton"
                        android:fontFamily="@font/latinotypeantartidaroundedmedium"
                        android:textColor="@color/black"/>
                    <RadioButton
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:text="No"
+                       android:text="@string/no_tag"
                        android:theme="@style/CustomRadioButton"
                        android:fontFamily="@font/latinotypeantartidaroundedmedium"
                        android:textColor="@color/black"/>
@@ -259,7 +261,9 @@
                     android:paddingStart="@dimen/activity_padding_start_8dp"
                     android:paddingLeft="@dimen/activity_padding_left_10dp"
                     android:text="@string/ksh_tag"
-                    android:textColor="@color/black" />
+                    android:paddingEnd="@dimen/activity_margin_0dp"
+                    android:textColor="@color/black"
+                    tools:ignore="RtlHardcoded" />
 
                 <EditText
                     android:id="@+id/annualIncomeEditText"
@@ -270,6 +274,7 @@
                     android:background="@color/white"
                     android:inputType="number"
                     android:maxLength="7"
+                    android:autofillHints="phone"
                     android:paddingStart="@dimen/activity_padding_10dp"
                     android:paddingEnd="@dimen/activity_padding_end_10dp" />
             </LinearLayout>
@@ -277,7 +282,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/activity_padding_10dp"
                 android:fontFamily="@font/latinotypeantartidaroundedmedium"
                 android:text="@string/education_tag"
                 android:textColor="@color/black" />
@@ -369,6 +374,9 @@
                 android:layout_marginTop="@dimen/activity_margin_top_5dp"
                 android:background="@drawable/edittextback"
                 android:maxLength="9"
+                android:autofillHints="name"
+                android:inputType="text"
+                android:paddingEnd="@dimen/activity_margin_0dp"
                 android:paddingStart="@dimen/activity_padding_10dp"
                 android:textColor="@color/black" />
 
@@ -388,6 +396,9 @@
                 android:background="@drawable/edittextback"
                 android:hint="@string/_00515_text"
                 android:maxLength="20"
+                android:inputType="text"
+                android:autofillHints="name"
+                android:paddingEnd="@dimen/activity_margin_0dp"
                 android:paddingStart="@dimen/activity_padding_10dp" />
 
             <TextView
@@ -406,6 +417,8 @@
                 android:background="@drawable/edittextback"
                 android:inputType="number"
                 android:maxLength="6"
+                android:autofillHints="postalCode"
+                android:paddingEnd="@dimen/activity_margin_0dp"
                 android:paddingStart="@dimen/activity_padding_10dp" />
 
             <CheckBox
@@ -414,20 +427,22 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="top"
+                android:paddingStart="@dimen/activity_margin_0dp"
+                android:paddingEnd="@dimen/activity_margin_0dp"
                 android:theme="@style/CustomRadioButton"
                 android:background="@drawable/checkboxback"
-                android:text="I understand that any changes made to the above fields will affect the premium for the policy I have chosen"
+                android:text="@string/i_understand_that_any_changes_made_to_the_above_fields_will_affect_the_premium_for_the_policy_i_have_chosen_tag"
                 android:fontFamily="@font/latinotypeantartidaroundedmedium"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
-                android:layout_height="47dp"
+                android:layout_height="@dimen/activity_margin_47dp"
                 android:layout_gravity="center"
-                android:padding="10dp"
+                android:padding="@dimen/activity_padding_10dp"
                 android:layout_marginTop="@dimen/activity_layout_elevation_10dp"
                 android:background="@drawable/buttonback"
-                android:drawableRight="@drawable/rightarrow"
+                android:drawableEnd="@drawable/rightarrow"
                 android:fontFamily="@font/latinotypeantartidaroundedmedium"
                 android:text="@string/update_proceed_tag"
                 android:textColor="@color/white" />
@@ -449,7 +464,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@color/white"
-            android:elevation="10dp"
+            android:elevation="@dimen/activity_layout_elevation_10dp"
             android:gravity="center"
             android:showDividers="end">
 
@@ -458,6 +473,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:paddingEnd="@dimen/activity_margin_0dp"
                 android:padding="@dimen/activity_padding_10dp"
                 android:paddingStart="@dimen/activity_padding_start_20dp">
 
@@ -478,6 +494,7 @@
                     android:layout_marginBottom="@dimen/activity_margin_bottom_10dp"
                     android:paddingStart="@dimen/activity_padding_start_8dp"
                     android:text="@string/ksh_7_087_tag"
+                    android:paddingEnd="@dimen/activity_margin_0dp"
                     android:textColor="@color/green" />
 
                 <TextView
@@ -485,8 +502,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/totalPremium"
                     android:layout_marginBottom="@dimen/activity_margin_bottom_10dp"
-                    android:layout_toRightOf="@+id/ksh"
+                    android:layout_toEndOf="@+id/ksh"
                     android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                    android:paddingEnd="@dimen/activity_margin_0dp"
                     android:paddingStart="@dimen/activity_padding_start_5dp"
                     android:text="@string/per_year_tag" />
             </RelativeLayout>
@@ -500,6 +518,6 @@
             android:background="@color/green"
             android:fontFamily="@font/latinotypeantartidaroundedmedium"
             android:text="@string/continue_btn_tag"
-            android:textColor="#212121" />
+            android:textColor="@color/white" />
     </LinearLayout>
 </RelativeLayout>

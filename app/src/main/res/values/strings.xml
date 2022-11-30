@@ -151,5 +151,13 @@
     <string name="coverage_tag">Coverage <font color='#ff0000'>*</font></string>
     <string name="terms_tag">Terms <font color='#ff0000'>*</font></string>
     <string name="update_proceed_tag"><![CDATA[Update & Proceed]]></string>
+    <string name="_254_tag">+254</string>
+    <string name="yes_tag">Yes</string>
+    <string name="no_tag">No</string>
+    <string name="i_understand_that_any_changes_made_to_the_above_fields_will_affect_the_premium_for_the_policy_i_have_chosen_tag">I understand that any changes made to the above fields will affect the premium for the policy I have chosen</string>
+    <string name="appURL">https://uat-integrationportal.insure.digital/api/v1/ip/</string>
+    <string name="error_api_tag">ERROR</string>
+    <string name="error_tag_value">Something went wrong</string>
+    <string name="apiURL">https://uat-integrationportal.insure.digital/api/v1/ip/uad/uad/GetUserProfile</string>
 </resources>
 
