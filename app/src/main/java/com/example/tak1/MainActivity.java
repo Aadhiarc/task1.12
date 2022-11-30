@@ -101,8 +101,14 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
 
     //API IMPLEMENTATION INTO THE VIEWS
     private void implementationApi() {
-        fullName.setText(userProfileModel.getFirstName());
-        email.setText(userProfileModel.getEmail());
+        try{
+            //API IMPLEMENTATION INTO THE VIEWS
+            fullName.setText(userProfileModel.getFirstName());
+            email.setText(userProfileModel.getEmail());
+        }catch (Exception e){
+
+        }
+
     }
 
 
@@ -213,7 +219,6 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
              //TO CONVERT STRING TO JSON OBJECTS
              JsonObject mobileParameters = new JsonObject();
              mobileParameters.addProperty("imeino1", uniqueId);
-             System.out.println(uniqueId);
              mobileParameters.addProperty("imeino2", (String) null);
              mobileParameters.addProperty("timezone", TimeZone.getDefault().getDisplayName());
              mobileParameters.addProperty("currentdatetime", java.text.DateFormat.getDateTimeInstance().format(new Date()));
@@ -266,118 +271,117 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
      //WHEN THE USER LOCATION CHANGED
     @Override
     public void onLocationChanged(@NonNull Location location) {
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                Geocoder geocoder;
-                List<Address> addresses;
-                geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
-                System.out.println(latitude);
-                System.out.println(longitude);
-                SharedPreferences sharedpreferences = getSharedPreferences("LocationPref", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString("Latitude", String.valueOf(latitude));
-                editor.putString("Longitude", String.valueOf(longitude));
-                editor.commit();
-                try {
+        AsyncTask.execute(() -> {
+            Geocoder geocoder;
+            List<Address> addresses;
+            geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
+            double latitude = location.getLatitude();
+            double longitude = location.getLongitude();
+            SharedPreferences sharedpreferences = getSharedPreferences("LocationPref", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putString("Latitude", String.valueOf(latitude));
+            editor.putString("Longitude", String.valueOf(longitude));
+            editor.commit();
+            try {
 
-                    addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                addresses = geocoder.getFromLocation(latitude, longitude, 1);
 
-                    if (addresses != null && addresses.size() > 0) {
-                        Address address = addresses.get(0);
-                        String addressDet = address.getAddressLine(0);
-                        SharedPreferences locashared = getSharedPreferences("LocationCurrent", MODE_PRIVATE);
-                        SharedPreferences.Editor editorloca = locashared.edit();
-                        editorloca.putString("Address", addressDet);
-                        editorloca.commit();
+                if (addresses != null && addresses.size() > 0) {
+                    Address address = addresses.get(0);
+                    String addressDet = address.getAddressLine(0);
+                    SharedPreferences locashared = getSharedPreferences("LocationCurrent", MODE_PRIVATE);
+                    SharedPreferences.Editor editorloca = locashared.edit();
+                    editorloca.putString("Address", addressDet);
+                    editorloca.commit();
 
-                    }
-
-                } catch (IOException ex) {
-                    // TODO Auto-generated catch block
-                    ex.printStackTrace();
                 }
 
+            } catch (IOException ex) {
+                // TODO Auto-generated catch block
+                ex.printStackTrace();
             }
+
         });
     }
-
+     //API CALL METHOD
     void apiCall() {
-       Thread thread = new Thread(() -> {
-           String postURL = getString(R.string.apiURL);
-           final MediaType json
-                   = MediaType.parse("application/json; charset=utf-8");
-           //BUILD A OKHTTP CLIENT
-           OkHttpClient client = new OkHttpClient.Builder()
-                   .connectTimeout(120, TimeUnit.SECONDS)
-                   .writeTimeout(120, TimeUnit.SECONDS)
-                   .readTimeout(120, TimeUnit.SECONDS)
-                   .build();
-           JsonObject Details = new JsonObject();
-           String insertString = Details.toString();
-           RequestBody body = RequestBody.create(json, insertString);
-           Request request = new Request.Builder()
-                   .url(postURL)
-                   .get()
-                   .header("fingerprint", "56695a532918188a")
-                   .header("Authorization", "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE4NTcwMzk5QzM0MjlDMUFDNjk3MTk5MzZCNDI3Q0Y5OUU2MDExQUQiLCJ0eXAiOiJKV1QifQ.eyJzZXNzaW9uSUQiOiJkYTdjM2U5ZC00YzNkLTQ4MjQtODJkMi1lMDU0Zjg5NmM4ZTUiLCJuYmYiOjE2Njk4MTQ2MDMsImV4cCI6MTY2OTgxODIwMywiaWF0IjoxNjY5ODE0NjAzLCJpc3MiOiJCQzcyRTczQUNBQkY0NzcyOEE3RUQ2MTlDREM3OUMwMSIsImF1ZCI6IjRENTIxMkI3QzA3NTQ0OTJCNjZDRDNCRDM1QzFGNzJBIn0.40tjld26YC5j67aox-uMNg20As_mwFp9iwf3AG5fo9ZFyQ-sxFmL_rzSTn5TTbNNX84lVpp2LmgT6NQF97wYC55V3mIpCzWnn-kamixK7iviTvB3VkzcdmJ7zrzA2XvIe4ZsYsIoD7HZG3mQ3r3UX6TSflISdqhQdaGCL1cuxyjxhScmDL4BCji6lCMLr_jOKGvmZYS1-71n8HRkCCmDr0YocR1nS3UjXzTx15Mv62Rj6jrFh3sz4pVSlszWt__hucEnpD6xs_RuwreaPIS_DNqHJPZLnLQPxPF5planLj_VpGqIw--ULM2Tl47o4SatNPKBG9MJElGk6a_TVYjjJaozGJb6NDmlrK6piwTs-D8y6BmGXetygdj4aMS_h2HFVToeBXC28bbblIuoM1vVa3x-E0NBKQltXGgDKvi3vrYEZFa37kOWHvGuuOlKpoOy3fRQmRE2juMA6OMOqyUm1kEnKaGj6TmE2FMOx3fk3AVyuWS-nTF6Np_AOet8ybUqySU_HlKu6qfAt8h9G_CUcMy6GfVC_CSgNzH73mgysf1n-xuFAnktlAUxfwJemVfXIjbjt281I3nzQQwTE1EkaErXVt0HJZHFevEA3WU0cxst6Cb5rOW6gc9CBLMh-QAhl-seTkVG3jc_pxhYdH5LzJbf9Y3NM3gq9778fRm0or4")
-                   .header("clientinfo", "{\"deviceID\":\"56695a532918188a\",\"deviceID2\":\"56695a532918188a\",\"deviceTimeZone\":\"India Standard Time\",\"deviceDateTime\":\"30-Nov-2022 15:23:53\",\"deviceIpAddress\":\"0.0.0.0\",\"deviceLatitude\":\"12.7091008\",\"deviceLongitude\":\"77.8310627\",\"deviceType\":\"Android\",\"deviceModel\":\"realme - RMX3241\",\"deviceVersion\":\"12\",\"deviceUserID\":\"123456\",\"deviceAppVersion\":\"1.0.6\",\"deviceIsJailBroken\":false}")
-                   .post(body)
-                   .build();
+        try{
+            Thread thread = new Thread(() -> {
+                //API URL
+                String postURL = getString(R.string.apiURL);
+                final MediaType json
+                        = MediaType.parse("application/json; charset=utf-8");
+                //BUILD A OKHTTP CLIENT
+                OkHttpClient client = new OkHttpClient.Builder()
+                        .connectTimeout(120, TimeUnit.SECONDS)
+                        .writeTimeout(120, TimeUnit.SECONDS)
+                        .readTimeout(120, TimeUnit.SECONDS)
+                        .build();
+                JsonObject Details = new JsonObject();
+                String insertString = Details.toString();
+                RequestBody body = RequestBody.create(json, insertString);
+                //TO REQUEST API
+                Request request = new Request.Builder()
+                        .url(postURL)
+                        .get()
+                        .header("fingerprint", "56695a532918188a")
+                        .header("Authorization", "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE4NTcwMzk5QzM0MjlDMUFDNjk3MTk5MzZCNDI3Q0Y5OUU2MDExQUQiLCJ0eXAiOiJKV1QifQ.eyJzZXNzaW9uSUQiOiJkYTdjM2U5ZC00YzNkLTQ4MjQtODJkMi1lMDU0Zjg5NmM4ZTUiLCJuYmYiOjE2Njk4MTQ2MDMsImV4cCI6MTY2OTgxODIwMywiaWF0IjoxNjY5ODE0NjAzLCJpc3MiOiJCQzcyRTczQUNBQkY0NzcyOEE3RUQ2MTlDREM3OUMwMSIsImF1ZCI6IjRENTIxMkI3QzA3NTQ0OTJCNjZDRDNCRDM1QzFGNzJBIn0.40tjld26YC5j67aox-uMNg20As_mwFp9iwf3AG5fo9ZFyQ-sxFmL_rzSTn5TTbNNX84lVpp2LmgT6NQF97wYC55V3mIpCzWnn-kamixK7iviTvB3VkzcdmJ7zrzA2XvIe4ZsYsIoD7HZG3mQ3r3UX6TSflISdqhQdaGCL1cuxyjxhScmDL4BCji6lCMLr_jOKGvmZYS1-71n8HRkCCmDr0YocR1nS3UjXzTx15Mv62Rj6jrFh3sz4pVSlszWt__hucEnpD6xs_RuwreaPIS_DNqHJPZLnLQPxPF5planLj_VpGqIw--ULM2Tl47o4SatNPKBG9MJElGk6a_TVYjjJaozGJb6NDmlrK6piwTs-D8y6BmGXetygdj4aMS_h2HFVToeBXC28bbblIuoM1vVa3x-E0NBKQltXGgDKvi3vrYEZFa37kOWHvGuuOlKpoOy3fRQmRE2juMA6OMOqyUm1kEnKaGj6TmE2FMOx3fk3AVyuWS-nTF6Np_AOet8ybUqySU_HlKu6qfAt8h9G_CUcMy6GfVC_CSgNzH73mgysf1n-xuFAnktlAUxfwJemVfXIjbjt281I3nzQQwTE1EkaErXVt0HJZHFevEA3WU0cxst6Cb5rOW6gc9CBLMh-QAhl-seTkVG3jc_pxhYdH5LzJbf9Y3NM3gq9778fRm0or4")
+                        .header("clientinfo", "{\"deviceID\":\"56695a532918188a\",\"deviceID2\":\"56695a532918188a\",\"deviceTimeZone\":\"India Standard Time\",\"deviceDateTime\":\"30-Nov-2022 15:23:53\",\"deviceIpAddress\":\"0.0.0.0\",\"deviceLatitude\":\"12.7091008\",\"deviceLongitude\":\"77.8310627\",\"deviceType\":\"Android\",\"deviceModel\":\"realme - RMX3241\",\"deviceVersion\":\"12\",\"deviceUserID\":\"123456\",\"deviceAppVersion\":\"1.0.6\",\"deviceIsJailBroken\":false}")
+                        .post(body)
+                        .build();
+                Response staticResponse = null;
+                try {
+                    //TO GET API RESPONSE
+                    staticResponse = client.newCall(request).execute();
+                    int statuscode = staticResponse.code();
+                    if (statuscode == 401) {
+                        runOnUiThread(() -> {
+                            System.out.println("error");
+                            return;
+                        });
+                    }
+                    //IF API CALL IS SUCCESSFUL
+                    else if(statuscode==200){
+                        String response=staticResponse.body().string();
+                        JSONObject obj = new JSONObject(response).getJSONObject("rObj");
+                        JSONObject USER=obj.getJSONObject("getUserProfile");
+                        String firstName= USER.getString("firstName");
+                        String lastName= USER.getString("lastName");
+                        String email= USER.getString("email");
+                        String profileID=USER.getString("profileID");
+                        String userProfile= USER.getString("isUserProfile");
+                        //ADD INTO USER PROFILE MODEL
+                        userProfileModel=new UserProfileModel(firstName,lastName,email,profileID,userProfile);
+                        //API DATA IMPLEMENTATION
+                        implementationApi();
 
-           Response staticResponse = null;
+                    }
+                    //IN CASE OF RESPONSE ERROR
+                    else if(statuscode==500){
+                        String response=staticResponse.body().string();
+                        // Extracting the message from the api response.
+                        JSONObject obj = new JSONObject(response);
+                        JSONArray error = obj.getJSONArray("rmsg");
+                        if(error != null && error.length() > 0 ) {
+                            for (int i = 0; i < error.length(); i++) {
+                                JSONObject fileObj = error.getJSONObject(i);
+                                fileObj.getString("errorText");
+                                fileObj.getString("errorCode");
+                                fileObj.getString("fieldName");
+                                fileObj.getString("fieldValue");
+                            }
+                        }
+                        JSONObject USER=obj.getJSONObject("getUserProfile");
+                        customDialogBox.alertTheUser(getString(R.string.error_api_tag), getString(R.string.error_tag_value),getApplicationContext());
+                    }
+                }catch (Exception e){
 
-           try {
-               staticResponse = client.newCall(request).execute();
-               int statuscode = staticResponse.code();
-               if (statuscode == 401) {
-                   runOnUiThread(new Runnable() {
-                       @Override
-                       public void run() {
-                           System.out.println("error");
-                           return;
-                       }
-                   });
-               }
-               else if(statuscode==200){
-                   String response=staticResponse.body().string();
-                   JSONObject obj = new JSONObject(response).getJSONObject("rObj");
-                   JSONObject USER=obj.getJSONObject("getUserProfile");
-                  String firstName= USER.getString("firstName");
-                  String lastName= USER.getString("lastName");
-                  String email= USER.getString("email");
-                  String profileID=USER.getString("profileID");
-                  String userProfile= USER.getString("isUserProfile");
-                   //ADD INTO USER PROFILE MODEL
-                   userProfileModel=new UserProfileModel(firstName,lastName,email,profileID,userProfile);
-                   //API DATA IMPLEMENTATION
-                   implementationApi();
+                }
+            });
+            thread.start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-               }
-               //IN CASE OF RESPONSE ERROR
-               else if(statuscode==500){
-                   String response=staticResponse.body().string();
-                   // Extracting the message from the api response.
-                   JSONObject obj = new JSONObject(response);
-                   JSONArray error = obj.getJSONArray("rmsg");
-                   if(error != null && error.length() > 0 ) {
-                       for (int i = 0; i < error.length(); i++) {
-                           JSONObject fileObj = error.getJSONObject(i);
-                              fileObj.getString("errorText");
-                              fileObj.getString("errorCode");
-                              fileObj.getString("fieldName");
-                              fileObj.getString("fieldValue");
-                       }
-                   }
-                   JSONObject USER=obj.getJSONObject("getUserProfile");
-                   customDialogBox.alertTheUser(getString(R.string.error_api_tag), getString(R.string.error_tag_value),getApplicationContext());
-               }
-           }catch (Exception e){
-
-           }
-       });
-        thread.start();
     }
     }

@@ -262,6 +262,7 @@
                     android:paddingLeft="@dimen/activity_padding_left_10dp"
                     android:text="@string/ksh_tag"
                     android:paddingEnd="@dimen/activity_margin_0dp"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     tools:ignore="RtlHardcoded" />
 
