@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
     Spinner occupation;
     EditText pinCode;
      LocationManager locationManager;
-     //USER PROFILE MODEL
+     //USER PROFILE MODEL DECLARATION
     UserProfileModel userProfileModel;
     //ON CREATE METHOD
     @Override
@@ -90,15 +90,10 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
             {
                 ex.printStackTrace();
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
-
     //API IMPLEMENTATION INTO THE VIEWS
     private void implementationApi() {
         try{
@@ -106,23 +101,17 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
             fullName.setText(userProfileModel.getFirstName());
             email.setText(userProfileModel.getEmail());
         }catch (Exception e){
-
+               e.printStackTrace();
         }
-
     }
-
-
     //ON CLICK OF VIEWS
     private void onClickMethods() {
         try {
             next.setOnClickListener(view -> {
                 //FOR VALIDATING EACH VIEWS
                 validation();
-
                 //TO SEE THE MOBILE DATA
                 System.out.println(InsertMobileParameters(getApplicationContext()));
-
-
             });
             next.setOnLongClickListener(view -> {
                 //CREATING A INTENT TO MOVE RADIO BUTTON ACTIVITY CLASS
@@ -134,8 +123,6 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
             e.printStackTrace();
         }
     }
-
-
     //VIEWS INITIALIZATION METHOD
     private void initialization() {
         try {
@@ -154,8 +141,6 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
             e.printStackTrace();
         }
     }
-
-
     //METHOD FOR VIEW VALIDATION
     private void validation() {
         try {
@@ -189,13 +174,11 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
             e.printStackTrace();
         }
     }
-
-
      //TO GET MOBILE INFORMATION
      public static String InsertMobileParameters(Context context) {
          try
          {
-
+             //TO CHECK THE DEVICE IS ROOTED OR NOT
              String rooteddevice;
              if(RootUtil.isDeviceRooted())
              {
@@ -206,7 +189,6 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
                  rooteddevice = "0";
              }
              String androidOS = Build.VERSION.RELEASE;
-
              String model = Build.MANUFACTURER + " - " + Build.MODEL;
              @SuppressLint("HardwareIds")
              final String uniqueId = Settings.Secure.getString(context.getContentResolver(),
@@ -240,8 +222,6 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
              return "";
          }
      }
-
-
      //TO GET THE USER LOCATION
      public void getLocation() {
          try {
@@ -250,8 +230,7 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
                  if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                         //TO GET USER LOCATION
                      locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                     locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000L, 5F, (LocationListener) this);
-
+                     locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000L, 5F, this);
                  } else {
                      //TO REQUEST LOCATION PERMISSION TO USER
                      ActivityCompat.requestPermissions(this, new String[]{
@@ -260,14 +239,10 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
                  }
              }
 
-         } catch (SecurityException ex) {
-             ex.printStackTrace();
-         }
-         catch (Exception ex) {
+         } catch (Exception ex) {
              ex.printStackTrace();
          }
      }
-
      //WHEN THE USER LOCATION CHANGED
     @Override
     public void onLocationChanged(@NonNull Location location) {
@@ -281,26 +256,21 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
             SharedPreferences.Editor editor = sharedpreferences.edit();
             editor.putString("Latitude", String.valueOf(latitude));
             editor.putString("Longitude", String.valueOf(longitude));
-            editor.commit();
+            editor.apply();
             try {
-
                 addresses = geocoder.getFromLocation(latitude, longitude, 1);
-
                 if (addresses != null && addresses.size() > 0) {
                     Address address = addresses.get(0);
                     String addressDet = address.getAddressLine(0);
                     SharedPreferences locashared = getSharedPreferences("LocationCurrent", MODE_PRIVATE);
                     SharedPreferences.Editor editorloca = locashared.edit();
                     editorloca.putString("Address", addressDet);
-                    editorloca.commit();
-
+                    editorloca.apply();
                 }
-
             } catch (IOException ex) {
                 // TODO Auto-generated catch block
                 ex.printStackTrace();
             }
-
         });
     }
      //API CALL METHOD
@@ -308,7 +278,7 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
         try{
             Thread thread = new Thread(() -> {
                 //API URL
-                String postURL = getString(R.string.apiURL);
+                String postURL = getString(R.string.apiURL);//BASE URL
                 final MediaType json
                         = MediaType.parse("application/json; charset=utf-8");
                 //BUILD A OKHTTP CLIENT
@@ -323,13 +293,12 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
                 //TO REQUEST API
                 Request request = new Request.Builder()
                         .url(postURL)
-                        .get()
                         .header("fingerprint", "56695a532918188a")
-                        .header("Authorization", "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE4NTcwMzk5QzM0MjlDMUFDNjk3MTk5MzZCNDI3Q0Y5OUU2MDExQUQiLCJ0eXAiOiJKV1QifQ.eyJzZXNzaW9uSUQiOiJkYTdjM2U5ZC00YzNkLTQ4MjQtODJkMi1lMDU0Zjg5NmM4ZTUiLCJuYmYiOjE2Njk4MTQ2MDMsImV4cCI6MTY2OTgxODIwMywiaWF0IjoxNjY5ODE0NjAzLCJpc3MiOiJCQzcyRTczQUNBQkY0NzcyOEE3RUQ2MTlDREM3OUMwMSIsImF1ZCI6IjRENTIxMkI3QzA3NTQ0OTJCNjZDRDNCRDM1QzFGNzJBIn0.40tjld26YC5j67aox-uMNg20As_mwFp9iwf3AG5fo9ZFyQ-sxFmL_rzSTn5TTbNNX84lVpp2LmgT6NQF97wYC55V3mIpCzWnn-kamixK7iviTvB3VkzcdmJ7zrzA2XvIe4ZsYsIoD7HZG3mQ3r3UX6TSflISdqhQdaGCL1cuxyjxhScmDL4BCji6lCMLr_jOKGvmZYS1-71n8HRkCCmDr0YocR1nS3UjXzTx15Mv62Rj6jrFh3sz4pVSlszWt__hucEnpD6xs_RuwreaPIS_DNqHJPZLnLQPxPF5planLj_VpGqIw--ULM2Tl47o4SatNPKBG9MJElGk6a_TVYjjJaozGJb6NDmlrK6piwTs-D8y6BmGXetygdj4aMS_h2HFVToeBXC28bbblIuoM1vVa3x-E0NBKQltXGgDKvi3vrYEZFa37kOWHvGuuOlKpoOy3fRQmRE2juMA6OMOqyUm1kEnKaGj6TmE2FMOx3fk3AVyuWS-nTF6Np_AOet8ybUqySU_HlKu6qfAt8h9G_CUcMy6GfVC_CSgNzH73mgysf1n-xuFAnktlAUxfwJemVfXIjbjt281I3nzQQwTE1EkaErXVt0HJZHFevEA3WU0cxst6Cb5rOW6gc9CBLMh-QAhl-seTkVG3jc_pxhYdH5LzJbf9Y3NM3gq9778fRm0or4")
+                        .header("Authorization", "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE4NTcwMzk5QzM0MjlDMUFDNjk3MTk5MzZCNDI3Q0Y5OUU2MDExQUQiLCJ0eXAiOiJKV1QifQ.eyJzZXNzaW9uSUQiOiIwMTcxZjhjOS1jY2E4LTQ1MjMtYjBmMy0yZmY3ODU3NmU4ZGEiLCJuYmYiOjE2Njk4Njg2NTYsImV4cCI6MTY2OTg3MjI1NiwiaWF0IjoxNjY5ODY4NjU2LCJpc3MiOiJCQzcyRTczQUNBQkY0NzcyOEE3RUQ2MTlDREM3OUMwMSIsImF1ZCI6IjRENTIxMkI3QzA3NTQ0OTJCNjZDRDNCRDM1QzFGNzJBIn0.J55JRiYUy-eVZ31BZPWjgrOPy38VDQDsw8Di7whYNPJ8VQRbmjMUU9ZawbxfVC771V-k05gflcSbSW2F8ZRInfjwqjd7ywjz5qIMvORsoGJLUEbQld31QQsNUZ-O6Dh7Vnrs4SrS8n4Rg5Y0KggpI4fTkzxwJAq1-HZQ00mmh-mBLJyZQ7Qv_VxICxuEwdnCAEOW6CWuWGhJON_viu1HGZeie7R0FLciLviMsv-kmWafHckj9v0d0rOXbsBtL3E9gMdtQmccVBn-s2vR1O_c9bhpORG3dgm0jwlFjwhQyv-p0SchhvUXlchN1Om-i8N11VWEecFVCFIFW1_TqJzHTs4h4dTaAvY8b2A53ytfJsjFGjGE5m1ew8-T3dQZQif_IVC6wKoCqyvPecucBYqNGxHhV7WAv_tNWIt2OJEvnGOiK8Z-W2YLNG_13etA0SdL3smqVpFCurdaqFxjPgIO4GhZ6gwIANegIYY0LqxHXK8swisFxPfpJp7FPLWOvQxbwPNNoueRbbNDwIr3ZR8m4wUkDRnYQrn7fIcW3QmiPz3yeKYKcBNB3v6wTMEQB6zwQ4wUmgK2ID7VB6x0NjPmZHmcQWS3z84ZKef1Lj-9zJNRrcwWPEKPz980MapUb1GwRsA-VVK-OtsRYMdWxO8_um_dde79uTO8NTW6vjQdt5s")
                         .header("clientinfo", "{\"deviceID\":\"56695a532918188a\",\"deviceID2\":\"56695a532918188a\",\"deviceTimeZone\":\"India Standard Time\",\"deviceDateTime\":\"30-Nov-2022 15:23:53\",\"deviceIpAddress\":\"0.0.0.0\",\"deviceLatitude\":\"12.7091008\",\"deviceLongitude\":\"77.8310627\",\"deviceType\":\"Android\",\"deviceModel\":\"realme - RMX3241\",\"deviceVersion\":\"12\",\"deviceUserID\":\"123456\",\"deviceAppVersion\":\"1.0.6\",\"deviceIsJailBroken\":false}")
                         .post(body)
                         .build();
-                Response staticResponse = null;
+                Response staticResponse=null;
                 try {
                     //TO GET API RESPONSE
                     staticResponse = client.newCall(request).execute();
@@ -354,13 +323,18 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
                         userProfileModel=new UserProfileModel(firstName,lastName,email,profileID,userProfile);
                         //API DATA IMPLEMENTATION
                         implementationApi();
-
                     }
                     //IN CASE OF RESPONSE ERROR
                     else if(statuscode==500){
-                        String response=staticResponse.body().string();
+                        String response= null;
+                        if (staticResponse.body() != null) {
+                            response = staticResponse.body().string();
+                        }
                         // Extracting the message from the api response.
-                        JSONObject obj = new JSONObject(response);
+                        JSONObject obj = null;
+                        if (response != null) {
+                            obj = new JSONObject(response);
+                        }
                         JSONArray error = obj.getJSONArray("rmsg");
                         if(error != null && error.length() > 0 ) {
                             for (int i = 0; i < error.length(); i++) {
@@ -375,13 +349,12 @@ public class MainActivity extends AppCompatActivity  implements LocationListener
                         customDialogBox.alertTheUser(getString(R.string.error_api_tag), getString(R.string.error_tag_value),getApplicationContext());
                     }
                 }catch (Exception e){
-
+                    e.printStackTrace();
                 }
             });
             thread.start();
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
     }
