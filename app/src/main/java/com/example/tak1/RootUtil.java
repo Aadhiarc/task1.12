@@ -5,16 +5,16 @@ import java.io.File;
 import java.io.InputStreamReader;
 
 public class RootUtil {
-
+    //DEVICE ROOT CHECK METHOD
     public static boolean isDeviceRooted() {
         return checkRootMethod1() || checkRootMethod2() || checkRootMethod3();
     }
-
+    //DEVICE ROOT CHECK METHOD 1
     private static boolean checkRootMethod1() {
         String buildTags = android.os.Build.TAGS;
         return buildTags != null && buildTags.contains("test-keys");
     }
-
+    //DEVICE ROOT CHECK METHOD 2
     private static boolean checkRootMethod2() {
         String[] paths = { "/system/app/Superuser.apk", "/sbin/su", "/system/bin/su", "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su", "/system/sd/xbin/su",
                 "/system/bin/failsafe/su", "/data/local/su", "/su/bin/su"};
@@ -23,7 +23,7 @@ public class RootUtil {
         }
         return false;
     }
-
+    //DEVICE ROOT CHECK METHOD 3
     private static boolean checkRootMethod3() {
         Process process = null;
         try {

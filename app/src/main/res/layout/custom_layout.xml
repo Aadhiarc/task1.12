@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/detailsback" android:paddingTop="20dp" android:paddingBottom="20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-    <TextView android:textColor="@color/dark_grey" android:id="@+id/firstText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25dp" android:text="@string/critical_illness_plus_benefits_text" android:fontFamily="@font/latinotypeantartidaroundedmedium"/>
-    <TextView android:textColor="@color/black" android:id="@+id/secondText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25dp" android:layout_marginTop="10dp" android:text="Premium value : Ksh 591 Monthly_text" android:layout_below="@+id/firstText" android:fontFamily="@font/latinotypeantartidaroundedbold"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/detailsback"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:id="@+id/firstText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:fontFamily="@font/latinotypeantartidaroundedmedium"
+        android:text="@string/critical_illness_plus_benefits_text"
+        android:textColor="@color/dark_grey" />
+
+    <TextView
+        android:id="@+id/secondText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstText"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/latinotypeantartidaroundedbold"
+        android:text="Premium value : Ksh 591 Monthly_text"
+        android:textColor="@color/black" />
 </RelativeLayout>

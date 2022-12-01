@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatButton;
 
-
+//CUSTOM DIALOG BOX CLASS
 public class customDialogBox {
     public static void alertTheUser(String Title, String Message, Context context) {
         final Dialog dialog = new Dialog(context);

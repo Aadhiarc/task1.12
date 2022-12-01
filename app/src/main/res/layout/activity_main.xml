@@ -75,7 +75,7 @@
         </LinearLayout>
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="@dimen/activity_margin_1dp"
             android:layout_height="wrap_content"
             android:background="@drawable/verticalline" />
 
@@ -136,13 +136,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_city_edit_text_height_50dp"
                 android:layout_marginTop="@dimen/activity_margin_top_5dp"
+                android:autofillHints="name"
                 android:background="@drawable/edittextback"
                 android:hint="@string/full_name_tag_hint"
                 android:inputType="textPersonName"
                 android:maxLength="20"
-                android:autofillHints="name"
                 android:paddingStart="@dimen/activity_padding_start_8dp"
-                android:paddingEnd="@dimen/activity_margin_0dp"/>
+                android:paddingEnd="@dimen/activity_margin_0dp" />
 
             <TextView
                 android:id="@+id/emailText"
@@ -159,13 +159,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_city_edit_text_height_50dp"
                 android:layout_marginTop="@dimen/activity_margin_top_5dp"
+                android:autofillHints="emailAddress"
                 android:background="@drawable/edittextback"
                 android:hint="@string/email_tag_hint"
                 android:inputType="textEmailAddress"
                 android:maxLength="25"
-                android:autofillHints="emailAddress"
-                android:paddingEnd="@dimen/activity_margin_0dp"
-                android:paddingStart="@dimen/activity_padding_start_8dp" />
+                android:paddingStart="@dimen/activity_padding_start_8dp"
+                android:paddingEnd="@dimen/activity_margin_0dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -185,28 +186,30 @@
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="@string/_254_tag"
                     android:background="@drawable/mobileback"
-                    android:gravity="center"
-                    android:textColor="@color/black"
                     android:fontFamily="@font/latinotypeantartidaroundedmedium"
-                    android:layout_gravity="center"/>
+                    android:gravity="center"
+                    android:text="@string/_254_tag"
+                    android:textColor="@color/black" />
+
                 <EditText
                     android:id="@+id/moblieNumberEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/activity_margin_end_5dp"
                     android:layout_weight="9"
-                    android:layout_gravity="center"
+                    android:autofillHints="phone"
                     android:background="@color/white"
                     android:inputType="number"
                     android:maxLength="7"
-                    android:autofillHints="phone"
                     android:paddingStart="@dimen/activity_padding_10dp"
                     android:paddingEnd="@dimen/activity_padding_end_10dp"
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -214,26 +217,29 @@
                 android:fontFamily="@font/latinotypeantartidaroundedmedium"
                 android:text="@string/do_you_smoke_or_chew_tobacco_tag"
                 android:textColor="@color/black" />
-               <RadioGroup
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:orientation="horizontal">
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="@string/yes_tag"
-                       android:theme="@style/CustomRadioButton"
-                       android:fontFamily="@font/latinotypeantartidaroundedmedium"
-                       android:textColor="@color/black"/>
-                   <RadioButton
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="@string/no_tag"
-                       android:theme="@style/CustomRadioButton"
-                       android:fontFamily="@font/latinotypeantartidaroundedmedium"
-                       android:textColor="@color/black"/>
 
-               </RadioGroup>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                    android:text="@string/yes_tag"
+                    android:textColor="@color/black"
+                    android:theme="@style/CustomRadioButton" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                    android:text="@string/no_tag"
+                    android:textColor="@color/black"
+                    android:theme="@style/CustomRadioButton" />
+
+            </RadioGroup>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -260,8 +266,8 @@
                     android:fontFamily="@font/latinotypeantartidaroundedmedium"
                     android:paddingStart="@dimen/activity_padding_start_8dp"
                     android:paddingLeft="@dimen/activity_padding_left_10dp"
-                    android:text="@string/ksh_tag"
                     android:paddingEnd="@dimen/activity_margin_0dp"
+                    android:text="@string/ksh_tag"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     tools:ignore="RtlHardcoded" />
@@ -272,10 +278,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/activity_margin_end_5dp"
                     android:layout_weight="9"
+                    android:autofillHints="phone"
                     android:background="@color/white"
                     android:inputType="number"
                     android:maxLength="7"
-                    android:autofillHints="phone"
                     android:paddingStart="@dimen/activity_padding_10dp"
                     android:paddingEnd="@dimen/activity_padding_end_10dp" />
             </LinearLayout>
@@ -373,12 +379,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_city_edit_text_height_50dp"
                 android:layout_marginTop="@dimen/activity_margin_top_5dp"
-                android:background="@drawable/edittextback"
-                android:maxLength="9"
                 android:autofillHints="name"
+                android:background="@drawable/edittextback"
                 android:inputType="text"
-                android:paddingEnd="@dimen/activity_margin_0dp"
+                android:maxLength="9"
                 android:paddingStart="@dimen/activity_padding_10dp"
+                android:paddingEnd="@dimen/activity_margin_0dp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -394,13 +400,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_city_edit_text_height_50dp"
                 android:layout_marginTop="@dimen/activity_margin_top_5dp"
+                android:autofillHints="name"
                 android:background="@drawable/edittextback"
                 android:hint="@string/_00515_text"
-                android:maxLength="20"
                 android:inputType="text"
-                android:autofillHints="name"
-                android:paddingEnd="@dimen/activity_margin_0dp"
-                android:paddingStart="@dimen/activity_padding_10dp" />
+                android:maxLength="20"
+                android:paddingStart="@dimen/activity_padding_10dp"
+                android:paddingEnd="@dimen/activity_margin_0dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -415,36 +421,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_city_edit_text_height_50dp"
                 android:layout_marginTop="@dimen/activity_margin_top_5dp"
+                android:autofillHints="postalCode"
                 android:background="@drawable/edittextback"
                 android:inputType="number"
                 android:maxLength="6"
-                android:autofillHints="postalCode"
-                android:paddingEnd="@dimen/activity_margin_0dp"
-                android:paddingStart="@dimen/activity_padding_10dp" />
+                android:paddingStart="@dimen/activity_padding_10dp"
+                android:paddingEnd="@dimen/activity_margin_0dp" />
 
             <CheckBox
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/checkboxback"
+                android:fontFamily="@font/latinotypeantartidaroundedmedium"
                 android:gravity="top"
                 android:paddingStart="@dimen/activity_margin_0dp"
                 android:paddingEnd="@dimen/activity_margin_0dp"
-                android:theme="@style/CustomRadioButton"
-                android:background="@drawable/checkboxback"
                 android:text="@string/i_understand_that_any_changes_made_to_the_above_fields_will_affect_the_premium_for_the_policy_i_have_chosen_tag"
-                android:fontFamily="@font/latinotypeantartidaroundedmedium"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:theme="@style/CustomRadioButton" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/activity_margin_47dp"
                 android:layout_gravity="center"
-                android:padding="@dimen/activity_padding_10dp"
                 android:layout_marginTop="@dimen/activity_layout_elevation_10dp"
                 android:background="@drawable/buttonback"
                 android:drawableEnd="@drawable/rightarrow"
                 android:fontFamily="@font/latinotypeantartidaroundedmedium"
+                android:padding="@dimen/activity_padding_10dp"
                 android:text="@string/update_proceed_tag"
                 android:textColor="@color/white" />
 
@@ -474,9 +480,9 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:paddingEnd="@dimen/activity_margin_0dp"
                 android:padding="@dimen/activity_padding_10dp"
-                android:paddingStart="@dimen/activity_padding_start_20dp">
+                android:paddingStart="@dimen/activity_padding_start_20dp"
+                android:paddingEnd="@dimen/activity_margin_0dp">
 
                 <TextView
                     android:id="@+id/totalPremium"
@@ -494,8 +500,8 @@
                     android:layout_below="@+id/totalPremium"
                     android:layout_marginBottom="@dimen/activity_margin_bottom_10dp"
                     android:paddingStart="@dimen/activity_padding_start_8dp"
-                    android:text="@string/ksh_7_087_tag"
                     android:paddingEnd="@dimen/activity_margin_0dp"
+                    android:text="@string/ksh_7_087_tag"
                     android:textColor="@color/green" />
 
                 <TextView
@@ -505,8 +511,8 @@
                     android:layout_marginBottom="@dimen/activity_margin_bottom_10dp"
                     android:layout_toEndOf="@+id/ksh"
                     android:fontFamily="@font/latinotypeantartidaroundedmedium"
-                    android:paddingEnd="@dimen/activity_margin_0dp"
                     android:paddingStart="@dimen/activity_padding_start_5dp"
+                    android:paddingEnd="@dimen/activity_margin_0dp"
                     android:text="@string/per_year_tag" />
             </RelativeLayout>
         </LinearLayout>

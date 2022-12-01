@@ -12,7 +12,7 @@
         app:itemIconTint="@drawable/i"
         app:itemTextColor="@drawable/i"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu" >
+        app:menu="@menu/menu">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="@dimen/activity_margin_30dp"

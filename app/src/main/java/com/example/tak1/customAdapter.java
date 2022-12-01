@@ -10,20 +10,21 @@ import android.widget.TextView;
 import java.util.List;
 
 public class customAdapter extends ArrayAdapter<modelClass> {
+    //VIEWS DECLARATION
     Context context;
     List<modelClass> objects;
     modelClass product;
     int resource;
     TextView textView1;
     TextView textView2;
-
+    //CUSTOM ADAPTER CONSTRUCTOR
     public customAdapter(Context context, int resource, List<modelClass> objects) {
         super(context, resource, objects);
         this.context = context;
         this.objects = objects;
         this.resource = resource;
     }
-
+    //ON CREATE VIEW
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(this.context);

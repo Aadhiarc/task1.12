@@ -12,7 +12,7 @@ public class radio_button extends AppCompatActivity {
     //VIEWS DECLARATION
     Button next;
 
-
+    //ON CREATE VIEWS
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
